@@ -55,6 +55,8 @@
 #include <utility>
 #include <vector>
 
+extern long double erfl(long double x);
+extern long double erfcl(long double x);
 
 namespace exprtk
 {
@@ -1197,9 +1199,9 @@ namespace exprtk
             #define exprtk_define_erf(TT,impl)           \
             inline TT erf_impl(TT v) { return impl(v); } \
 
-            exprtk_define_erf(      float,::erff)
-            exprtk_define_erf(     double,::erf )
-            exprtk_define_erf(long double,::erfl)
+            exprtk_define_erf(      float,erff)
+            exprtk_define_erf(     double,erf )
+            exprtk_define_erf(long double,erfl)
             #undef exprtk_define_erf
             #endif
 
